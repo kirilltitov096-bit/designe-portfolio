@@ -1,0 +1,48 @@
+/* A single entrance: chrome orbits settle into the KT monogram. */
+.signature-formation{pointer-events:none;overflow:visible}
+.intro-mark{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:scale(1.14);filter:drop-shadow(0 22px 24px #0007)}
+.logo-chroma{opacity:.5;mix-blend-mode:screen}.logo-metal{paint-order:stroke fill}
+.intro-mark[data-stage="logo"] .logo-chroma{opacity:.36}
+.brand-monogram{display:block;width:58px;height:50px;overflow:visible}.brand-monogram .logo-chroma{opacity:.4}
+.logo-mark{width:47px;height:42px;flex-shrink:0;background:none!important;border:0;box-shadow:none;border-radius:0;overflow:visible}
+.signature-formation .signature-halo{background:radial-gradient(ellipse at 40% 35%,#cee8ff13,transparent 57%),radial-gradient(ellipse at 65% 70%,#e8b7e90a,transparent 55%);filter:blur(18px)}
+.signature-formation .signature-orbit{opacity:.55}.signature-formation .signature-orbit-a{left:9%;top:9%;height:78%;width:81%;transform:rotate(-29deg) scaleX(.69)}.signature-formation .signature-orbit-b{opacity:.25}
+.signature-formation .bubble-a{width:95px;height:95px;top:11%;left:0;opacity:.5}.signature-formation .bubble-b{width:66px;height:66px;bottom:17%;right:0;opacity:.4}
+.signature-formation .signature-cross{right:5%;top:15%;opacity:.7;width:37px;height:37px}
+.signature-formation .signature-caption{left:0;right:0;bottom:25px;text-align:center;font-size:12px;letter-spacing:.18em}
+.glass-optics{position:absolute;pointer-events:none;overflow:hidden}
+/* The text stays sharp. Only the backdrop is refracted at the lens edges. */
+.primary,.small-button,.filters button,.project-open,.contact .primary{
+ --light-x:35%;--light-y:12%;
+ color:#f4f7fa;
+ background:radial-gradient(ellipse at var(--light-x) var(--light-y),#ffffff12,transparent 66%),linear-gradient(155deg,#edf8ff12,#dfeaf501 40%,#c7e0f30c 75%,#e8f6ff18);
+ border:1px solid #e8f3ff40;
+ -webkit-backdrop-filter:blur(9px) saturate(155%) brightness(1.07);backdrop-filter:blur(9px) saturate(155%) brightness(1.07);
+ box-shadow:inset 0 1px 1px #ffffffbd,inset 1px 0 1px #ffffff26,inset -1px -1px 1px #fff2,inset 0 -3px 5px #8eabc216,0 3px 5px #0002,0 12px 25px #00000030;
+ text-shadow:0 1px 3px #0008;transition:background .3s,box-shadow .3s,transform .3s,border-color .3s;
+}
+.primary::before,.small-button::before,.filters button::before,.project-open::before{
+ content:'';position:absolute;inset:0;padding:1.25px;border-radius:inherit;pointer-events:none;z-index:0;
+ background:linear-gradient(138deg,#fff 0%,#e2f1ff5c 17%,#fff0 37%,#fff0 57%,#d6f2ff9c 80%,#fff6);
+ -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;
+ mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;
+}
+.primary::after,.small-button::after,.filters button::after,.project-open::after{
+ content:'';position:absolute;inset:2px;height:auto;border-radius:inherit;pointer-events:none;z-index:-1;
+ background:radial-gradient(ellipse at var(--light-x) 0%,#ffffff29,transparent 59%),radial-gradient(ellipse at 65% 110%,#a6d3f027,transparent 55%);
+ box-shadow:inset 0 1px 4px #fff1,inset 0 -1px 3px #c7edff1f;transform:none;
+}
+.primary:hover,.small-button:hover,.filters button:hover,.contact .primary:hover{
+ background:radial-gradient(ellipse at var(--light-x) var(--light-y),#fff2,transparent 65%),linear-gradient(150deg,#edf8ff17,#dfeaf504 42%,#c7e0f310);
+ border-color:#f2f8ff70;color:#fff;
+ box-shadow:inset 0 1px 1px #fff,inset 1px 0 1px #ffffff40,inset -1px -1px 1px #fff3,inset 0 -3px 6px #8eabc21c,0 5px 10px #0002,0 15px 28px #0005;
+}
+.primary:hover::after,.small-button:hover::after{transform:none}
+.filters button.active,.filters button.active:hover{color:#fff;border-color:#edf7ff90;background:linear-gradient(150deg,#f0f7ff20,#bcd9ee0c 50%,#dfedff1f);box-shadow:inset 0 1px 1px #fff,0 0 18px #c6e9ff08,0 5px 14px #0003}
+@supports (backdrop-filter:url("#liquid-refraction")){
+ .primary,.small-button,.filters button,.project-open,.contact .primary{backdrop-filter:url("#liquid-refraction") blur(5px) saturate(155%) brightness(1.08)}
+}
+@media(max-width:750px){.signature-formation{height:380px;width:min(100%,510px)}.intro-mark{transform:scale(1.11)}.signature-formation .signature-caption{bottom:8px}.signature-formation .bubble-a{width:77px;height:77px}.signature-formation .bubble-b{width:54px;height:54px}}
+@media(max-width:450px){.signature-formation{height:300px;margin-top:10px}.intro-mark{transform:scale(1.08)}.signature-formation .signature-caption{bottom:0;font-size:12px;letter-spacing:.12em}.signature-formation .signature-cross{width:28px;height:28px;top:13%}.signature-formation .bubble-a{width:62px;height:62px;left:1%}.signature-formation .bubble-b{width:45px;height:45px;bottom:16%}.navigation .logo-mark{width:38px;height:35px}.brand-monogram{width:47px;height:42px}}
+@media(prefers-reduced-motion:reduce){.intro-mark{animation:none;transition:none}.primary::after,.small-button::after,.filters button::after{transition:none}}
+.intro-mark[data-intro-mode="pending"]{visibility:hidden}
